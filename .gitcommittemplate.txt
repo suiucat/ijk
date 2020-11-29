@@ -1,0 +1,3 @@
+这是commit的模板
+示例:
+react: some description (try to keep under 50 characters)
