@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` has a vaild snapshot 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="interactions"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        type="text"
+        value="redux"
+      />
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+  <div
+    className="table"
+  />
+  <div
+    className="interactions"
+  >
+    <button
+      className=""
+      onClick={[Function]}
+      type="button"
+    >
+      More
+    </button>
+  </div>
+</div>
+`;
+
+exports[`App has a vaild snapshot 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="interactions"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        type="text"
+        value="redux"
+      />
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+  <div
+    className="table"
+  />
+  <div
+    className="interactions"
+  >
+    <button
+      className=""
+      onClick={[Function]}
+      type="button"
+    >
+      More
+    </button>
+  </div>
+</div>
+`;
+
+exports[`App has a vaild snapshot 2`] = `
+<div
+  className="page"
+>
+  <div
+    className="interactions"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        type="text"
+        value="redux"
+      />
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+  <div
+    className="table"
+  />
+  <div
+    className="interactions"
+  >
+    <button
+      className=""
+      onClick={[Function]}
+      type="button"
+    >
+      More
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button has a vaild snapshot 1`] = `
+<form>
+  <input
+    type="text"
+  />
+  <button
+    type="submit"
+  />
+</form>
+`;
+
+exports[`Button has a vaild snapshot 2`] = `
+<button
+  className=""
+  type="button"
+/>
+`;
+
+exports[`Search has a vaild snapshot 1`] = `
+<form>
+  <input
+    type="text"
+  />
+  <button
+    type="submit"
+  />
+</form>
+`;
+
+exports[`Search has a vaild snapshot 2`] = `
+<form>
+  <input
+    type="text"
+  />
+  <button
+    type="submit"
+  />
+</form>
+`;
+
+exports[`Table has a vaild snapshot 1`] = `
+<button
+  className=""
+  type="button"
+/>
+`;
