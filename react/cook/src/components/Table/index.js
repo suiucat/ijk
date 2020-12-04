@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './index.css'
 import Button from '../Button'
 
 const Table = ({ list, onDismiss }) =>
