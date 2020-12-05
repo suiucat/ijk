@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { sortBy } from 'lodash';
-
+import SORTS from './constants/sorts';
 import {
   Button,
   Table,
@@ -20,14 +20,6 @@ import {
   PARAM_HPP,
 } from './constants';
 
-const SORTS = {
-  NONE: list => list,
-  TITLE: list => sortBy(list, 'title'),
-  AUTHOR: list => sortBy(list, 'author'),
-  COMMENTS: list => sortBy(list, 'num_comments').resverse(),
-  POINTS: list => sortBy(list, 'points').resverse(),
-}
-
 // 高阶组件
 const withLoading = (Component) => ({ isLoading, ...rest}) =>
   isLoading
@@ -35,6 +27,8 @@ const withLoading = (Component) => ({ isLoading, ...rest}) =>
     : <Component { ...rest } />
 // 高阶组件按钮
 const ButtonWithLoading = withLoading(Button);
+
+
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +40,13 @@ class App extends Component {
       searchTerm: DEFAULT_QUERY,
       error: null,
       isLoading: false,
+      sortKey: 'NONE',
     };
+
+    this.onSort = (sortKey) => {
+      console.log(sortKey, 'sortKey')
+      // this.setState({ sortKey });
+    }
 
     this.needsToSearchTopStories = (searchTerm) => {
       return !this.state.results[searchTerm];
@@ -125,7 +125,8 @@ class App extends Component {
       results,
       searchKey,
       error,
-      isLoading
+      isLoading,
+      sortKey,
     } = this.state;
 
     const page = (
@@ -157,6 +158,8 @@ class App extends Component {
             </div>
           : <Table
             list={list}
+            sortKey={sortKey}
+            onSort={this.onSort}
             onDismiss={this.onDismiss}
           />
         }
