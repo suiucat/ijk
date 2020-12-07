@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import { sortBy } from 'lodash';
-import SORTS from './constants/sorts';
+
 import {
   Button,
   Table,
@@ -40,12 +39,13 @@ class App extends Component {
       searchTerm: DEFAULT_QUERY,
       error: null,
       isLoading: false,
-      sortKey: 'NONE',
+      sortKey: 'NONE', // 用于排序不同的列
+      isSortReverse: false,
     };
 
     this.onSort = (sortKey) => {
-      console.log(sortKey, 'sortKey')
-      // this.setState({ sortKey });
+      const isSortReverse = this.state.sortKey === sortKey && !this.state.isSortR
+      this.setState({ sortKey, isSortReverse });
     }
 
     this.needsToSearchTopStories = (searchTerm) => {
@@ -56,7 +56,7 @@ class App extends Component {
       const { hits, page } = result;
       const { searchKey, results } = this.state;
 
-      const oldHits = results && results[searchKey]
+      const oldHits = (results && results[searchKey])
         ? results[searchKey].hits
         : [];
 
@@ -127,6 +127,7 @@ class App extends Component {
       error,
       isLoading,
       sortKey,
+      isSortReverse,
     } = this.state;
 
     const page = (
@@ -159,6 +160,7 @@ class App extends Component {
           : <Table
             list={list}
             sortKey={sortKey}
+            isSortReverse={isSortReverse}
             onSort={this.onSort}
             onDismiss={this.onDismiss}
           />

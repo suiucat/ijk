@@ -9,8 +9,12 @@ const Table = ({
   sortKey,
   onSort,
   onDismiss,
+  isSortReverse,
 }) => {
   const sortedlist = SORTS[sortKey](list);
+  const reverseSortedList = isSortReverse
+    ? sortedlist.reverse()
+    : sortedlist;
   return (
     <div className="table">
     <div className="table-header">
@@ -18,6 +22,7 @@ const Table = ({
         <Sort
           sortKey={'TITLE'}
           onSort={onSort}
+          activeSortKey={sortKey}
         >
           Title
         </Sort>
@@ -26,6 +31,7 @@ const Table = ({
         <Sort
           sortKey={'AUTHOR'}
           onSort={onSort}
+          activeSortKey={sortKey}
         >
           Author
         </Sort>
@@ -34,6 +40,7 @@ const Table = ({
         <Sort
           sortKey={'COMMENTS'}
           onSort={onSort}
+          activeSortKey={sortKey}
         >
           Comments
         </Sort>
@@ -42,6 +49,7 @@ const Table = ({
         <Sort
           sortKey={'POINTS'}
           onSort={onSort}
+          activeSortKey={sortKey}
         >
           Points
         </Sort>
@@ -50,7 +58,7 @@ const Table = ({
         Archive
       </span>
     </div>
-    {sortedlist.map(item =>
+    {reverseSortedList.map(item =>
       <div key={item.objectID} className="table-row">
         <span style={{ width: '40%' }}>
           <a href={item.url}>{item.title}</a>

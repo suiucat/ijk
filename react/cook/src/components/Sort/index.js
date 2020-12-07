@@ -1,12 +1,25 @@
 import './index.css'
 import Button from '../Button';
+import classNames from 'classnames';
 
-const Sort = ({ sortKey, onSort, children }) =>
-  <Button
-    onClick={() => onSort(sortKey)}
-    className="button-inline"
-  >
-    {children}
-  </Button>
+const Sort = ({
+  sortKey,
+  onSort,
+  activeSortKey,
+  children,
+}) => {
+  const sortClass = classNames(
+    'button-inline',
+    {'button-active': sortKey === activeSortKey }
+  );
+  return (
+    <Button
+      onClick={() => onSort(sortKey)}
+      className={sortClass}
+    >
+      {children}
+    </Button>
+  );
+}
 
 export default Sort;
